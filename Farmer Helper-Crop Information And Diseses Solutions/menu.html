@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .category, .product {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .category img, .product img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crop Categories</h1>
+    <div class="container" id="categories">
+        <!-- Categories will be inserted here by JavaScript -->
+    </div>
+
+    <h1>Crop Products</h1>
+    <div class="container" id="products">
+        <!-- Products will be inserted here by JavaScript -->
+    </div>
+
+    <script>
+        const categories = [
+            { name: 'Fruits', image: 'images/blog-1.jpg.' },
+            { name: 'Vegetables', image: 'images/blog-1.jpg' },
+            { name: 'Grains', image: 'images/blog-1.jpg' }
+        ];
+
+        const products = [
+            { name: 'Apple', image: 'images/blog-1.jpg' },
+            { name: 'Carrot', image: 'images/blog-1.jpg' },
+            { name: 'Wheat', image: 'images/blog-1.jpg' }
+        ];
+
+        function displayItems(items, containerId, className) {
+            const container = document.getElementById(containerId);
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = className;
+                div.innerHTML = `<img src="${item.image}" alt="${item.name}"><h3>${item.name}</h3>`;
+                container.appendChild(div);
+            });
+        }
+
+        displayItems(categories, 'categories', 'category');
+        displayItems(products, 'products', 'product');
+    </script>
+</body>
+</html>
